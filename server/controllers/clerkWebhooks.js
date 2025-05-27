@@ -3,7 +3,7 @@ import { Webhook} from "svix";
 
 const clerkWebhooks = async (req, res)=> {
     try {
-        const whook = new Webhook(process.end.CLEAK_WEBHOOK_SECRET)
+        const whook = new Webhook(process.end.CLERK_WEBHOOK_SECRET)
 
 
         //getting headers
@@ -34,12 +34,12 @@ const clerkWebhooks = async (req, res)=> {
             }
 
             case "user.updated":{
-                await User.findbyIdAndUpdate(data.id, userData);
+                await User.findByIdAndUpdate(data.id, userData);
                 break;
             }
 
             case "user.deleted":{
-                await User.findbyIdAndDelete(data.id);
+                await User.findByIdAndDelete(data.id);
                 break;
             }
 
