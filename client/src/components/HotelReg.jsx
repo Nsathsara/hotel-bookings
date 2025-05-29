@@ -15,6 +15,8 @@ const HotelReg = () => {
     const onSubmitHandler = async (event) => {
         try {
             event.preventDefault();
+            const token = await getToken(); //add after
+            console.log("Token being sent:", token); //add after
             const {data} = await axios.post(`/api/hotels/`, {name, contact, address, city}, {headers: {Authorization: `Bearer ${await getToken()}`}})
 
             if(data.success){
@@ -25,7 +27,7 @@ const HotelReg = () => {
                 toast.error(data.message)
             }
         } catch (error) {
-            toast.success(error.message)
+            toast.error(error.message)
         }
     }
 
