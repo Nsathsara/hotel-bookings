@@ -6,6 +6,6 @@ import { requireAuth } from '@clerk/express';
 const hotelRouter = express.Router();
 
 hotelRouter.post('/', protect, registerHotel);
-router.post('/api/hotels/', requireAuth(), hotelController); // add after
+router.post('/', requireAuth(), hotelController); // add afterr
 
 export default hotelRouter;
