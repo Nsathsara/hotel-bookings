@@ -3,7 +3,7 @@ import {v2 as cloudinary} from "cloudinary";
 import Room from "../models/Room.js";
 
 
-//Api to create a new room for a hotel
+//API to create a new room for a hotel
 export const createRoom = async (req, res) => {
     try {
         const {roomType, pricePerNight, amenities} = req.body;

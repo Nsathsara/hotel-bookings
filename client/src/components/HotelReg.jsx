@@ -44,7 +44,7 @@ const HotelReg = () => {
                     Hotel Name
                 </label>
                 <input id='name' onChange={(e)=> setName(e.target.value)} value={name} type='text' placeholder='Type here' className='border border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
-                font-light'/>
+                font-light' required/>
             </div>
 
             {/* phone */}
@@ -53,7 +53,7 @@ const HotelReg = () => {
                     Phone
                 </label>
                 <input id='contact' onChange={(e)=> setContact(e.target.value)} value={contact} type='contact' placeholder='Type Here' className='border border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
-                font-light'/>
+                font-light' required/>
             </div>
 
             {/* Address */}
@@ -62,7 +62,7 @@ const HotelReg = () => {
                     Address
                 </label>
                 <input id='address' onChange={(e)=> setAddress(e.target.value)} value={address} type='address' placeholder='Type Here' className='border border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
-                font-light'/>
+                font-light' required/>
             </div>
             {/* Select City Drop Down */}
             <div className='w-full mt-4 max-w-600 mr-auto'>

@@ -64,7 +64,8 @@ const Navbar = () => {
                         </a>
                     ))}
                   { user && (
-                    <button className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`} onClick={() => isOwner ? navigate ('/owner') : setShowHotelReg(true)}>
+                    <button className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`} 
+                    onClick={() => isOwner ? navigate ('/owner') : setShowHotelReg(true)}>
                     {isOwner ? 'Dashboard' : 'List Your Hotel'}
                     </button>
                     )
@@ -111,7 +112,8 @@ const Navbar = () => {
                         </a>
                     ))}
 
-                    {user && <button className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all" onClick={() => isOwner ? navigate ('/owner') : setShowHotelReg(true)}>
+                    {user && <button className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all" 
+                    onClick={() => isOwner ? navigate ('/owner') : setShowHotelReg(true)}>
                         {isOwner ? 'Dashboard' : 'List Your Hotel'}
                     </button>}
 

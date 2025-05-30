@@ -24,9 +24,9 @@ export const checkAvailabilityAPI = async (req, res) =>{
     try {
         const {room, checkInDate, checkOutDate} = req.body;
         const isAvailable = await checkAvailability({ checkInDate, checkOutDate, room});
-        res.jason({ success: true, isAvailable})
+        res.json({ success: true, isAvailable})
     } catch (error) {
-        res.jason({ success: false, message: error.message })
+        res.json({ success: false, message: error.message })
     }
 }
 
@@ -42,11 +42,11 @@ export const createBooking = async (req, res) => {
         const isAvailable = await checkAvailability({
             checkInDate,
             checkOutDate,
-            room,
+            room
         });
 
         if(!isAvailable){
-            return res.jason({success: false, message: "Room is not available"})
+            return res.json({success: false, message: "Room is not available"})
         }
 
         //get totalPrice from Room
