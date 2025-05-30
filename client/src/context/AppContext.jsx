@@ -13,9 +13,9 @@ export const AppProvider = ({ children })=>{
     const currency = import.meta.env.VITE_CURRENCY || "$";
     const navigate = useNavigate();
     const {user} = useUser();
-    const { getToken } = useAuth();
+    const { getToken } = useAuth()
 
-    const [isOwner, setIsOwner] = useState(false);
+    const [isOwner, setIsOwner] = useState(false)
     const [showHotelReg, setShowHotelReg] = useState(false)
     const [searchedCities, setSearchedCities] = useState([])
 
@@ -55,4 +55,4 @@ export const AppProvider = ({ children })=>{
 
 }
 
-export const useAppContext = () => useContext(AppContext);
+export const useAppContext = ()=> useContext(AppContext);

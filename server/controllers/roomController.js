@@ -4,12 +4,12 @@ import Room from "../models/Room.js";
 
 
 //API to create a new room for a hotel
-export const createRoom = async (req, res) => {
+export const createRoom = async (req, res)=>{
     try {
         const {roomType, pricePerNight, amenities} = req.body;
         const hotel = await Hotel.findOne({owner: req.auth.userId})
 
-        if(!hotel) return res.json({success: false, message: "Hotel not found."});
+        if(!hotel) return res.json({ success: false, message: "Hotel not found" });
 
         //upload images to cloudinary
         const uploadImages = req.files.map(async (file) => {
@@ -33,8 +33,10 @@ export const createRoom = async (req, res) => {
     }
 }
 
+
+
 //Api to get all rooms
-export const getRooms = async (req, res) => {
+export const getRooms = async (req, res)=>{
     try {
         const rooms = await Room.find({isAvailable: true}).populate ({
             path: 'hotel',
@@ -49,8 +51,10 @@ export const getRooms = async (req, res) => {
     }
 }
 
+
+
 //Api to get all rooms for specific hotel
-export const getOwnerRooms = async (req, res) => {
+export const getOwnerRooms = async (req, res)=>{
     try {
         const hotelData = await Hotel.findOne({owner: req.auth.userId})
         const rooms = await Room.find({hotel: hotelData._id.toString()}).populate
@@ -68,8 +72,8 @@ export const toggleRoomAvailability = async (req, res) => {
         const roomData = await Room.findById(roomId);
         roomData.isAvailable = !roomData.isAvailable;
         await roomData.save();
-        res.json({success: true, message: "Room Availability Updated"});
+        res.json({ success: true, message: "Room Availability Updated" });
     } catch (error) {
-        res.json({success: false, message: error.message});
+        res.json({ success: false, message: error.message });
     }
 }

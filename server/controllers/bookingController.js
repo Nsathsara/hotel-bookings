@@ -22,9 +22,9 @@ const checkAvailability = async ({ checkInDate, checkOutDate, room }) => {
 // POST /api/bookings/check-availability
 export const checkAvailabilityAPI = async (req, res) =>{
     try {
-        const {room, checkInDate, checkOutDate} = req.body;
+        const { room, checkInDate, checkOutDate } = req.body;
         const isAvailable = await checkAvailability({ checkInDate, checkOutDate, room});
-        res.json({ success: true, isAvailable})
+        res.json({ success: true, isAvailable })
     } catch (error) {
         res.json({ success: false, message: error.message })
     }
@@ -87,7 +87,7 @@ export const getUserBookings = async (req, res) => {
         ({createdAt: -1})
         res.json({success: true, bookings})
     } catch (error) {
-        res.json({ success: false, message: "Failed to fetch booking" })
+        res.json({ success: false, message: "Failed to fetch booking" });
     }
 }
 
@@ -97,7 +97,7 @@ export const getHotelBookings = async (req, res) =>{
         if(!hotel){
             return res.json({ success: false, message: "No Hotel Found"});
         }
-        const bookings = await Booking.find({hotel: hotel._id}).populate("room hotel user").sort({createdAt: -1});
+        const bookings = await Booking.find({hotel: hotel._id}).populate("room hotel user").sort({ createdAt: -1 });
 
         //total bookings
         const totalBookings = bookings.length;
